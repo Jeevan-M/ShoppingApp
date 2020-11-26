@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model';
+import { RecipesService } from '../recipes.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -7,16 +8,13 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-
-  recipes: Recipe[] = [
-    new Recipe('Rose Milk',
-      'Rose and Milk',
-      'https://potatokitchen.files.wordpress.com/2019/05/rose-milk-100.jpg')
-  ];
-
-  constructor() { }
+  recipes: Recipe[];
+  constructor(private recipesList: RecipesService) { }
 
   ngOnInit(): void {
+    this.recipes = this.recipesList.getRecipes()
   }
+
+
 
 }

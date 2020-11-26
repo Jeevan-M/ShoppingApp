@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ShoppingApp';
+  recipeOrShoppingValue: boolean;
+  constructor() { }
+
+  recipeOrShoppingButton(buttonValue: { recipeOrShoppingButtonValue: boolean }) {
+    this.recipeOrShoppingValue = buttonValue.recipeOrShoppingButtonValue;
+  }
 }
